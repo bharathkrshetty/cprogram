@@ -55,6 +55,15 @@ System design is a solution for HOW TO approach to the creation of a new system.
 |HR_05|Hard Disk(2GB)|Implemented|
 
 ### Low level Requirements:
+|      ID          |Description                          |Status                         |
+|----------------|-------------------------------|-----------------------------|
+|LR_01| Function to display welcome message       |Implemented            |
+|LR_02| Function to validate user name           |Implemented|
+|LR_03| Function to add and view books   |Future|
+|LR_04| Functions to search and delete the books |Future|
+|LR_05|Functions to update credentials |Future|
+
+
 
 
 
