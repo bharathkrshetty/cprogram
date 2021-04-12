@@ -46,6 +46,13 @@ System design is a solution for HOW TO approach to the creation of a new system.
 ## Detail requirements
 
 ### High Level Requirements:
+|      ID          |Description                          |Status                         |
+|----------------|-------------------------------|-----------------------------|
+|HR_01|Operating System (Windows 10/Linux)       |Implemented            |
+|HR_02|C language            |Implemented|
+|HR_03|Pentium IV Processor  |Implemented|
+|HR_04|RAM(512MB)|Implemented|
+|HR_05|Hard Disk(2GB)|Implemented|
 
 ### Low level Requirements:
 
