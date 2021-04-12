@@ -18,6 +18,27 @@ The main features of this system includes
 3. Searching books
 4. viewing books
 
+## SWOT ANALYSIS
+
+## 4W's and 1'H
+
+### Who:
+
+### What:
+
+### When:
+
+### Where:
+
+### How:
+
+
+## Detail requirements
+
+### High Level Requirements:
+
+### Low level Requirements:
+
 
 
 
