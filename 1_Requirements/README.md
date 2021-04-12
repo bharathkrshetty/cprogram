@@ -20,6 +20,8 @@ The main features of this system includes
 
 ## SWOT ANALYSIS
 
+![Swot](https://embed.creately.com/Re345tXDdel?type=svg)
+
 ## 4W's and 1'H
 
 ### Who:
