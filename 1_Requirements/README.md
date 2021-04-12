@@ -7,6 +7,7 @@ This is a console application using the C programming language. This project is 
 
 ## Research
 [Research paper 1](https://www.freestudentprojects.com/java-projects/library-management-system-project-report/)
+[Research paper 2](https://aticleworld.com/library-management-system-project-in-c/)
 
 
 
