@@ -26,13 +26,21 @@ The main features of this system includes
 
 ### Who:
 
+This project can be used by the Librarians of schools and colleges. This system will make their work simple.
+
 ### What:
 
+Adding, deleting, viewing and searching of books can be done by this system without manual efforts of the librarian.
+ 
 ### When:
 
+When the book is needed to be added or issued or searched this system is used.
+
 ### Where:
+This system is used in Libraries of schools and colleges.
 
 ### How:
+System design is a solution for HOW TO approach to the creation of a new system. It translates system requirements into ways by which they can be made operational. It is a translational from a user oriented document to a document oriented programmers. For that, it provides the understanding and procedural details necessary for the implementation. Here UML diagrams are used to supplement the working of the new system. The system thus made should be reliable, durable and above all should have least possible maintenance costs.
 
 
 ## Detail requirements
