@@ -6,7 +6,8 @@ BUILD_DIR = Build
 SRC = src/add_new_book.c src/discard_a_book.c src/find_a_book.c src/update_book.c src/view_book.c  
 
 TEST_SRC = src/add_new_book.c src/discard_a_book.c src/find_a_book.c src/update_book.c src/view_book.c\
-unity/unity.c
+unity/unity.c\
+test/test_library.c
 
 INC = -Iinc\
 -Iunity
