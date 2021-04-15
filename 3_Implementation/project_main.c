@@ -1,112 +1,62 @@
-#include <calculator_operations.h>
-
-/* Status of the operation requested */
-#define VALID   (1)
-#define INVALID (0)
-
-/* Calculator operation requested by user*/
-unsigned int calculator_operation = 0;
-
-/* Operands on which calculation is performed */
-int calculator_operand1 = 0;
-int calculator_operand2 = 0;
-
-/* Valid operations */
-enum operations{ ADD=1, SUBTRACT, MULTIPLY, DIVIDE, EXIT };
-
-/* Display the menu of operations supported */
-void calculator_menu(void);
-/* Verifies the requested operations validity */
-int valid_operation(int operation);
+#include"library_management.h"
 
 
-/* Start of the application */
-int main(int argc, char *argv[])
-{
-    printf("\n****Calculator****\n");
-    while(1)
-    {
-        calculator_menu();
+/**
+ * @brief main function of the project
+ * 
+ * @return int 
+ */
+int main(){
+    int task, success, ID, new_member_id;
+    char new_status[10], new_date_of_issue[10], new_due_date[10], new_member_first_name[10],new_member_last_name[10], new_title[20];
+    printf("1. View all books\n2. Add a new book\n3. Find a book\n4. Update the status of a book\n5. Delete records of a book\n");
+    printf("Enter the task number to perform one of the tasks\n");
+    scanf("%d",&task);
+    if(task == 1){
+        success = view_all_records();
+    }else if(task == 2){
+        printf("Enter the ID of new book\n");
+        scanf("%d",&ID);
+        fflush(stdin);
+        printf("Enter the title of new book\n");
+        gets(new_title);
+        success = enter_new_record(ID, new_title);
+    }else if(task == 3){
+        printf("Enter the ID of the book to search\n");
+        scanf("%d",&ID);
+        success = view_a_record(ID);
+    }else if(task == 4){
+        printf("Enter the ID of the book to update\n");
+        scanf("%d",&ID);
+        success = view_a_record(ID);
+        if(success == 1){
+            printf("Enter new status\n");
+            scanf("%s", new_status);
+            printf("Enter new date of issue\n");
+            scanf("%s", new_date_of_issue);
+            printf("Enter new due date\n");
+            scanf("%s", new_due_date);
+            printf("Enter first name of member\n");
+            scanf("%s", new_member_first_name);
+            printf("Enter last name of member\n");
+            scanf("%s", new_member_last_name);
+            printf("Enter member ID\n");
+            scanf("%d", &new_member_id);
+            success=update_record(ID, new_status, new_date_of_issue, new_due_date, new_member_first_name,new_member_last_name, new_member_id);
+        }
+    }else if (task==5){
+        printf("Enter the ID of the book to delete\n");
+        scanf("%d",&ID);
+        success=delete_record(ID);
+    }else{
+        printf("Wrong input\n");
     }
-}
-
-void calculator_menu(void)
-{
-    printf("\nAvailable Operations\n");
-    printf("\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit");
-    printf("\n\tEnter your choice\n");
-   
-     __fpurge(stdin);
-    scanf("%d", &calculator_operation);
-
-    if(EXIT == calculator_operation)
-    {
-        printf("\nThank you. Exiting the Application\n");
-        exit(0);
+    if(success == pass){
+        printf("Operation successful\n");
+    }else if(success == fail){
+        printf("Operation unseccessful\n");
+    }else{
+        printf("Error condition\n");
     }
-
-    if(INVALID != valid_operation(calculator_operation))
-    {
-        printf("\n\tEnter your Numbers with space between them\n");
-        __fpurge(stdin);
-        scanf("%d %d", &calculator_operand1, &calculator_operand2);
-    }
-    else
-    {
-        printf("\n\t---Wrong choice---\nEnter to continue\n");
-        __fpurge(stdin);
-        getchar();
-        return;
-        
-    }
-    switch(calculator_operation)
-    {
-        case ADD:
-            printf("\n\t%d + %d = %d\nEnter to continue", 
-            calculator_operand1, 
-            calculator_operand2,
-            add(calculator_operand1, calculator_operand2));
-            
-            __fpurge(stdin);
-            getchar();
-            break;
-        case SUBTRACT:
-            printf("\n\t%d - %d = %d\nEnter to continue", 
-            calculator_operand1, 
-            calculator_operand2,
-            subtract(calculator_operand1, calculator_operand2));
-            
-            __fpurge(stdin);
-            getchar();
-            break;
-        case MULTIPLY:
-            printf("\n\t%d * %d = %d\nEnter to continue", 
-            calculator_operand1, 
-            calculator_operand2,
-            multiply(calculator_operand1, calculator_operand2));
-            
-            __fpurge(stdin);
-            getchar();
-            break;
-        case DIVIDE:
-            printf("\n\t%d / %d = %d\nEnter to continue", 
-            calculator_operand1, 
-            calculator_operand2,
-            divide(calculator_operand1, calculator_operand2));
-            
-            __fpurge(stdin);
-            getchar();
-            break;
-        case 5:
-            exit(0);
-            break;
-        default:
-            printf("\n\t---It should never come here---\n");
-    }
-}
-
-int valid_operation(int operation)
-{
-    /* Check if the operation is a valid operation */
-    return ((ADD <= operation) && (EXIT >= operation)) ? VALID: INVALID;
+    return 0;
 }
