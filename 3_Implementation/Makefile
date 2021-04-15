@@ -1,18 +1,27 @@
-PROJ_NAME = cprogram
-TEST_PROJ_NAME = Test_$(PROJ_NAME)
+# Name of the project
+PROJECT_NAME = cprogram
 
-BUILD_DIR = Build
+# All source code files
+SRC = main.c\
+src/add_new_book.c\
+src/discard_a_book.c\
+src/find_a_book.c\
+src/update_book.c\
+src/view_book.c
 
-SRC = src/add_new_book.c src/discard_a_book.c src/find_a_book.c src/update_book.c src/view_book.c  
-
-TEST_SRC = src/add_new_book.c src/discard_a_book.c src/find_a_book.c src/update_book.c src/view_book.c\
+TEST_SRC = src/add_new_book.c\
+src/discard_a_book.c\
+src/find_a_book.c\
+src/update_book.c\
+src/view_book.c\
 unity/unity.c\
-test/test_library.c
+test/test_management.c
 
-INC = -Iinc\
--Iunity
+# Path to header files
+INC_HEADER = inc
+INC_TEST = unity
 
-#To check if the OS is Windows or Linux and set the executable file extension and delete command accordingly
+#To check if the OS is windows or linux and set the executable file extension and delete command accordingly
 ifdef OS
    RM = del /q
    FixPath = $(subst /,\,$1)
@@ -25,29 +34,33 @@ else
    endif
 endif
 
-# Makefile will not run target command if the name with file already exists. To override, use .PHONY
-.PHONY : all test coverage run clean doc
+TEST_OUTPUT = Test_$(PROJECT_NAME).$(EXEC)
 
-all:$(BUILD_DIR)
-	gcc project_main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
+all:
+	gcc -I $(INC_HEADER) $(SRC) -o $(call FixPath, ./$(PROJECT_NAME).$(EXEC))
 
 run: all
-	$(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
+	$(call FixPath, ./$(PROJECT_NAME).$(EXEC))
+
 test:
-	gcc -I $(INC_HEADER) -I $(INC_TEST) $(TEST_SRC) -o $(call FixPath,$(TEST_OUTPUT))
-	$(call FixPath,$(TEST_OUTPUT))
+	gcc -I $(INC_HEADER) -I $(INC_TEST) $(TEST_SRC) -o $(call FixPath, ./$(TEST_OUTPUT))
+	$(call FixPath, ./$(TEST_OUTPUT))
 
-coverage:${PROJECT_NAME}
-	gcc -fprofile-arcs -ftest-coverage $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
-	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
-	gcov -a $(SRC)
+coverageCheck:
+	gcc -fprofile-arcs -ftest-coverage -I $(INC_HEADER) -I $(INC_TEST) $(TEST_SRC) -o $(call FixPath, $(TEST_OUTPUT))
+	$(call FixPath, ./$(TEST_OUTPUT))
+	gcov -a $(call FixPath, ./test_management.c) $(call FixPath, ./add_new_book.c) $(call FixPath, ./discard_a_book.c) $(call FixPath, ./find_a_book.c) $(call FixPath, ./update_book.c) $(call FixPath, ./view_book.c)
 
-doc:
-	make -C doc
-$(BUILD_DIR):
-	mkdir $(BUILD_DIR)
+cppcheck:
+	cppcheck --enable=all -I $(INC_HEADER) $(SRC)
+
+valgrind:
+	gcc -I $(INC_HEADER) -I $(INC_TEST) $(TEST_SRC) -o $(call FixPath, ./$(TEST_OUTPUT))
+	valgrind ./$(TEST_OUTPUT)
 
 clean:
-	$(RM) $(call FixPath,$(BUILD_DIR)/*)
-	make clean -C doc
-	rmdir $(BUILD_DIR) doc/html
+	gcc -fprofile-arcs -ftest-coverage -I $(INC_HEADER) -I $(INC_TEST) $(TEST_SRC) -o $(call FixPath, $(TEST_OUTPUT))
+	$(RM) *.$(EXEC)
+	$(RM) *.gcda
+	$(RM) *.gcno
+	$(RM) *.gcov
