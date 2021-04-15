@@ -15,7 +15,7 @@ src/find_a_book.c\
 src/update_book.c\
 src/view_book.c\
 unity/unity.c\
-test/test_management.c
+test/test_library.c
 
 # Path to header files
 INC_HEADER = inc
