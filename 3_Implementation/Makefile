@@ -3,9 +3,9 @@ TEST_PROJ_NAME = Test_$(PROJ_NAME)
 
 BUILD_DIR = Build
 
-SRC = src/add_new_book.c src/discard_a_book.c src/find_a_book.c src/update book.c src/view book.c  
+SRC = src/add_new_book.c src/discard_a_book.c src/find_a_book.c src/update_book.c src/view_book.c  
 
-TEST_SRC = src/add_new_book.c src/discard_a_book.c src/find_a_book.c src/update book.c src/view book.c\
+TEST_SRC = src/add_new_book.c src/discard_a_book.c src/find_a_book.c src/update_book.c src/view_book.c\
 unity/unity.c
 
 INC = -Iinc\
@@ -28,7 +28,7 @@ endif
 .PHONY : all test coverage run clean doc
 
 all:$(BUILD_DIR)
-	gcc main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
+	gcc project_main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
 
 run: all
 	$(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
