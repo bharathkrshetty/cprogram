@@ -18,4 +18,4 @@
 |  L_02       | View the datails of all  books | 900 ,"Electronics"  | 1  | 1  | Scenario based    |
 |  L_03       | Search the details of entered book by giving "ID" and "Name"| 900   | 1  | 1  | Scenario based    |
 |  L_04       | update the book status | 900, "issued", "21/02/21", "21/03/20", "Rajan","deepdas", 333   | 1  | 1  | Scenario based    |
-|  L_05       | Delete the book by entering the "ID" of the book to delete | 1234   | 1  | 1  | Scenario based    |
+|  L_05       | Delete the book by entering the "ID" of the book to delete | 900   | 1  | 1  | Scenario based    |
