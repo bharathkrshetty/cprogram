@@ -57,11 +57,11 @@ System design is a solution for HOW TO approach to the creation of a new system.
 ### Low level Requirements:
 |      ID          |Description                          |Status                         |
 |----------------|-------------------------------|-----------------------------|
-|LR_01| Function to display welcome message       |Implemented            |
-|LR_02| Function to validate user name           |Implemented|
-|LR_03| Function to add and view books   |Future|
-|LR_04| Functions to search and delete the books |Future|
-|LR_05|Functions to update credentials |Future|
+|LR_01| Function to add book       |Implemented            |
+|LR_02| Function to delete book         |Implemented|
+|LR_03| Function to view books   |Implemented|
+|LR_04| Functions to find the books |Implemented|
+|LR_05| Functions to update credentials |Future|
 
 
 
