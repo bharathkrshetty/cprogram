@@ -8,7 +8,7 @@ void tearDown(){}
 
 
 void test_enter_new_record(void){
-    TEST_ASSERT_EQUAL(pass,enter_new_record(900, "Wings of freedom"));
+    TEST_ASSERT_EQUAL(pass,enter_new_record(900, "Electronics"));
 }
 
 void test_view_all_records(void){
@@ -21,7 +21,7 @@ void test_view_a_record(void){
 }
 
 void test_update_record(void){
-    TEST_ASSERT_EQUAL(pass,update_record(900, "issued", "21/01/21", "31/01/31", "Anupam","Gupta", 123));
+    TEST_ASSERT_EQUAL(pass,update_record(900, "issued", "21/02/21", "21/03/20", "Rajan","deepdas", 123));
 }
 
 void test_delete_record(void){

@@ -20,8 +20,8 @@ test_values view_a_record(int id){
                 printf("Title: %s\n", book_to_find->book_title);
                 printf("Status: %s\n", book_to_find->status);
                 printf("Issued by: %s %s\n", book_to_find->member_first_name, book_to_find->member_last_name);
-                printf("ID of the member: %d\n", book_to_find->member_id);
-                printf("Date of issue: %s\n", book_to_find->date_of_issue);
+                printf("ID of member: %d\n", book_to_find->member_id);
+                printf("Issue date: %s\n", book_to_find->date_of_issue);
                 printf("Due date: %s\n", book_to_find->due_date);
                 fclose(fptr);
                 free(book_to_find);
@@ -30,7 +30,7 @@ test_values view_a_record(int id){
         }
         fclose(fptr);
         free(book_to_find);
-        printf("Specified book does not exist\n");
+        printf("The book does not exist\n");
         return fail;
     }   
 }

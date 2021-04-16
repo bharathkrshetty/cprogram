@@ -9,8 +9,8 @@
 int main(){
     int task, success, ID, new_member_id;
     char new_status[10], new_date_of_issue[10], new_due_date[10], new_member_first_name[10],new_member_last_name[10], new_title[20];
-    printf("1. View all books\n2. Add a new book\n3. Find a book\n4. Update the status of a book\n5. Delete records of a book\n");
-    printf("Enter the task number to perform one of the tasks\n");
+    printf("1. View all books\n2. Add new book\n3. Find book\n4. Update the status of a book\n5. Delete records of a book\n");
+    printf("Enter the option to perform the tasks\n");
     scanf("%d",&task);
     if(task == 1){
         success = view_all_records();
@@ -32,7 +32,7 @@ int main(){
         if(success == 1){
             printf("Enter new status\n");
             scanf("%s", new_status);
-            printf("Enter new date of issue\n");
+            printf("Enter new Issue date\n");
             scanf("%s", new_date_of_issue);
             printf("Enter new due date\n");
             scanf("%s", new_due_date);
